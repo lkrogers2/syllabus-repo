@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Org Theory Syllabus Repository</title>
+  <style>
+    :root {
+      --primary: #1a365d;
+      --primary-light: #2c5282;
+      --accent: #c53030;
+      --bg: #f7fafc;
+      --card-bg: #ffffff;
+      --text: #2d3748;
+      --text-light: #718096;
+      --border: #e2e8f0;
+      --tag-bg: #ebf4ff;
+      --tag-text: #2b6cb0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--primary-light);
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .stats-bar .stat strong {
+      font-size: 1.25rem;
+      display: block;
+    }
+
+    /* Filters */
+    .filters {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .filters-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .filters label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+    }
+
+    .filters select, .filters input[type="text"] {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: white;
+      color: var(--text);
+    }
+
+    .filters input[type="text"] {
+      width: 220px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .clear-btn {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--text-light);
+      align-self: flex-end;
+    }
+
+    .clear-btn:hover { background: var(--bg); }
+
+    /* Results count */
+    .results-info {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      padding: 1rem 0 0.5rem;
+    }
+
+    /* Course cards */
+    .courses {
+      padding: 1rem 0 3rem;
+    }
+
+    .course-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .course-card:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .course-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .course-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+
+    .course-year {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      white-space: nowrap;
+      padding: 0.2rem 0.5rem;
+      background: var(--bg);
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .course-meta {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .course-meta strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .course-description {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.55rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 3px;
+    }
+
+    .tag.modality {
+      background: #f0fff4;
+      color: #276749;
+    }
+
+    .tag.students {
+      background: #fefcbf;
+      color: #975a16;
+    }
+
+    .course-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.85rem;
+    }
+
+    .course-footer a {
+      color: var(--primary-light);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .course-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .course-notes {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #bee3f8;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* About section */
+    .about {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin: 1.5rem 0 0.5rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .about h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .about p {
+      margin-bottom: 0.5rem;
+    }
+
+    .about a {
+      color: var(--primary-light);
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      header h1 { font-size: 1.5rem; }
+      .stats-bar { gap: 1.5rem; font-size: 0.8rem; }
+      .filters-inner { flex-direction: column; }
+      .filters input[type="text"] { width: 100%; }
+      .course-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Org Theory Syllabus Repository</h1>
+  <p>A community-sourced collection of organizational theory syllabi from education scholars across universities.<br>This repository is supported and maintained by members of the AERA Org Theory SIG.</p>
+</header>
+
+<div class="stats-bar">
+  <div class="stat"><strong id="stat-courses">0</strong> Courses</div>
+  <div class="stat"><strong id="stat-institutions">0</strong> Institutions</div>
+  <div class="stat"><strong id="stat-contributors">0</strong> Contributors</div>
+</div>
+
+<div class="filters">
+  <div class="filters-inner">
+    <div class="filter-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" placeholder="Search courses...">
+    </div>
+    <div class="filter-group">
+      <label for="filter-foci">Focus Area</label>
+      <select id="filter-foci"><option value="">All</option></select>
+    </div>
+    <div class="filter-group">
+      <label for="filter-modality">Modality</label>
+      <select id="filter-modality"><option value="">All</option></select>
+    </div>
+    <div class="filter-group">
+      <label for="filter-students">Students</label>
+      <select id="filter-students"><option value="">All</option></select>
+    </div>
+    <div class="filter-group">
+      <label for="filter-institution">Institution</label>
+      <select id="filter-institution"><option value="">All</option></select>
+    </div>
+    <button class="clear-btn" onclick="clearFilters()">Clear filters</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="about">
+    <h2>About This Repository</h2>
+    <p>This repository collects syllabi from organizational theory courses taught in education programs and related departments. It is intended as a resource for instructors designing or revising their own courses. If you use a syllabus from this collection, please credit the contributor as they have requested.</p>
+    <p>Want to contribute your syllabus? <a href="https://forms.gle/DfdkPQqzZzwfKuQR7" target="_blank">Submit here</a>.</p>
+  </div>
+
+  <div class="results-info" id="results-info"></div>
+  <div class="courses" id="courses"></div>
+</div>
+
+<footer>
+  <p>Org Theory Syllabus Repository &mdash; A community resource for education scholars</p>
+  <p style="margin-top: 0.5rem; opacity: 0.8;">Built with care. <a href="https://docs.google.com/spreadsheets/d/1aL5ILRkwIAmAww3pXeYWnS4w5l9mpCCnjxfEyX80nmo/edit" target="_blank">View original data</a></p>
+</footer>
+
+<script>
+let syllabi = [
+  {"id":1,"courseTitle":"Organizational Theory","institution":"University of Utah","department":"Educational Leadership and Policy","contributor":"Laura Rogers","description":"This is a traditional org theory course applied to education.","foci":["Organizational theory","Leadership/management","K-12 education","Higher education"],"yearTaught":2022,"schedule":"Semester","modality":["In-person"],"students":["PhD","EdD"],"syllabusLink":"https://drive.google.com/open?id=1HtSnUwuRFag3EIrBpeEmfSCeqyVQQpjR","notes":"This course mixed K-12, Higher Ed, PhD, and EdD students and was a bit tough to teach for that reason. I welcome feedback on how it could be improved!"},
+  {"id":2,"courseTitle":"School Organization and Administration","institution":"Washington State University","department":"Educational Leadership","contributor":"Jeff Walls","description":"This is a course for EdD students that provides a variety of theories of organization that I hope will be useful to them in their dissertations in practice.","foci":["Organizational theory","Organizational behavior/change","Leadership/management"],"yearTaught":2023,"schedule":"Semester","modality":["In-person","Online synchronous"],"students":["EdD"],"syllabusLink":"https://drive.google.com/open?id=1204Df7cYLHvPfGqaiHBOxxNj9B4uoUF4","notes":""},
+  {"id":3,"courseTitle":"EDLF 8826: Developing High-Performance Organizations","institution":"University of Virginia","department":"School of Education and Human Development \u2014 Administration & Supervision Program Area","contributor":"David Eddy-Spicer","description":"Developing High-performance Organizations is a doctoral-level course for ExSEL students and others interested in understanding how organizations evolve, develop, improve, and decline. Students examine organizational theories, case studies, research on efforts to improve organizational performance, and methods for studying organizations over extended periods of time.","foci":["Organizational theory","Organizational behavior/change","Leadership/management"],"yearTaught":2023,"schedule":"Semester","modality":["In-person","Online"],"students":["EdD"],"syllabusLink":"https://drive.google.com/open?id=13O2CYHx9ovUXmg5jEJDWrVuLR6T7a8EI","notes":""},
+  {"id":4,"courseTitle":"Organizational Theory in Education and Other Social Services","institution":"UC Berkeley","department":"Education","contributor":"Eos Trinidad","description":"This course integrates perspectives from organizational theory, sociology, and psychology to understand how schools function as complex social organizations. It draws on classic and contemporary studies to help students analyze, understand, and formulate responses to problems, dilemmas, and changes in schools and other social services. The course studies how organizational structure, culture, network, and interventions impact practices and outcomes.","foci":["Organizational theory","Organizational behavior/change","Policy implementation"],"yearTaught":2023,"schedule":"Semester","modality":["In-person","Online"],"students":["Masters","PhD"],"syllabusLink":"https://drive.google.com/open?id=1wLHInRMxYhR3Boggi0cCJ10t0eHL08XR","notes":""},
+  {"id":5,"courseTitle":"Tools for Organizational Analysis","institution":"Northwestern University","department":"Learning and Organizational Change","contributor":"Jeannette Colyvas","description":"Tools for Organizational Analysis is a collaborative course designed to help students harness the fundamentals of organizational analysis to address key questions about organizational behavior and performance. We pay special attention to research design and methodologies that address the dynamics of stability and change at the field and organizational levels.","foci":["Organizational theory","Organizational behavior/change"],"yearTaught":2024,"schedule":"Quarter","modality":["In-person"],"students":["Masters","PhD"],"syllabusLink":"https://drive.google.com/open?id=1kTR7vjS2_HS_9V_iLiL0KRb-GbPlja4i","notes":""},
+  {"id":6,"courseTitle":"Topics in Organizations, Institutions, and Society: Persistence and Change Among Public, Private, and Non-Profit Settings","institution":"Northwestern University","department":"Learning and Organizational Change","contributor":"Jeannette Colyvas","description":"The course is organized as a seminar and will blend foundational studies in institutional theory with contemporary work from sociology, organization sciences, management, education, and nonprofit studies. An overarching theme of the course addresses how new practices and organizational forms spread (diffusion), how they become taken for granted or deeply embedded in social life (institutionalization), and when or how they change or are replaced.","foci":["Organizational theory","Organizational behavior/change","Sociology"],"yearTaught":2024,"schedule":"Quarter","modality":["In-person"],"students":["Masters","PhD"],"syllabusLink":"https://drive.google.com/open?id=1lButlOMV2XdKhR8iF2Uy-1PZm0PN--o2","notes":""},
+  {"id":7,"courseTitle":"Advanced Organizational Theory","institution":"Vanderbilt University","department":"Human and Organizational Development","contributor":"Joanne Golann","description":"This course builds on a first undergraduate course in org theory that uses Bolman and Deal to help students apply org theory to contemporary organizational issues.","foci":["Organizational theory","Sociology"],"yearTaught":2023,"schedule":"Semester","modality":["In-person"],"students":["Undergraduate"],"syllabusLink":"https://drive.google.com/open?id=1lBDEcU3O5B4E8e2FJq5NnKHPepQlKw4H","notes":"This course is taught differently by different instructors. Gareth Jones\u2019 textbook was formally used and is the business-version of org theory."},
+  {"id":8,"courseTitle":"Organizational Perspectives on Educational Improvement","institution":"University of Pittsburgh","department":"Educational Foundations, Organizations, and Policy","contributor":"Eleanor Anderson","description":"A PhD seminar on organizational theory for students in the school of education.","foci":["Organizational theory","Sociology","K-12 education","Higher education"],"yearTaught":2024,"schedule":"Semester","modality":["In-person"],"students":["PhD"],"syllabusLink":"https://drive.google.com/open?id=16oiuVaWf_8QnAyYUCGLH2wQNS6FBl1kZ","notes":""},
+  {"id":9,"courseTitle":"LOC 306 Studies in Organizational Change","institution":"Northwestern University","department":"Learning & Organizational Change","contributor":"James Spillane","description":"Studies in Organizational Change is an advanced course in the Learning & Organizational Change major designed to introduce key constructs and ideas about change in organizations.","foci":["Organizational theory","Organizational behavior/change","Sociology"],"yearTaught":2024,"schedule":"Quarter","modality":["In-person"],"students":["Undergraduate"],"syllabusLink":"","notes":"Syllabus not shared publicly."},
+  {"id":10,"courseTitle":"UEL 9012: Contexts of Educational Systems: Organizational Theory in Education","institution":"University of Cincinnati","department":"Educational Leadership","contributor":"Kate Kennedy","description":"In this course, we dig deeply into one area of scholarship that may be particularly helpful to scholar-practitioners: organizational theory. This course is an introduction to organizational theory in education, with the unique lens of using organizational theory to solve problems of practice.","foci":["Organizational theory","Organizational behavior/change","Leadership/management","Policy implementation","Sociology","K-12 education","Higher education"],"yearTaught":2025,"schedule":"Semester","modality":["Online asynchronous"],"students":["EdD"],"syllabusLink":"https://drive.google.com/open?id=1Crp7dPAzePHjcYRgIc3Ge3B0OlxPaJNQ","notes":""},
+  {"id":11,"courseTitle":"Lenses for Understanding and Examining K-12 Policy Implementation","institution":"University of Maryland","department":"Education Policy","contributor":"Meghan Comstock","description":"The purpose of this seminar course is to familiarize students with organizational theory and its applications to K-12 policy implementation.","foci":["Organizational theory","Policy implementation","K-12 education"],"yearTaught":2022,"schedule":"Summer (10 total class sessions)","modality":["In-person"],"students":["Masters","PhD"],"syllabusLink":"https://drive.google.com/open?id=1TPqCfz9uPm1G9AUplmHUr1nDIgJqKxbI","notes":""},
+  {"id":12,"courseTitle":"Lenses for Understanding and Examining K-12 Policy Implementation","institution":"University of Maryland","department":"Education Policy","contributor":"Meghan Comstock","description":"The purpose of this seminar course is to familiarize students with organizational theory and its applications to K-12 policy implementation.","foci":["Organizational theory","Policy implementation","K-12 education"],"yearTaught":2022,"schedule":"Summer (10 total class sessions)","modality":["In-person"],"students":["Masters","PhD"],"syllabusLink":"https://drive.google.com/open?id=1PeuBwU9TvgqQKiqJqIpG3A_L2FWWxvVh","notes":""}
+];
+
+function loadData() {
+  populateFilters();
+  updateStats();
+  render();
+}
+
+function populateFilters() {
+  const allFoci = new Set();
+  const allModalities = new Set();
+  const allStudents = new Set();
+  const allInstitutions = new Set();
+
+  syllabi.forEach(s => {
+    s.foci.forEach(f => allFoci.add(f));
+    s.modality.forEach(m => allModalities.add(m));
+    s.students.forEach(st => allStudents.add(st));
+    allInstitutions.add(s.institution);
+  });
+
+  populateSelect('filter-foci', [...allFoci].sort());
+  populateSelect('filter-modality', [...allModalities].sort());
+  populateSelect('filter-students', [...allStudents].sort());
+  populateSelect('filter-institution', [...allInstitutions].sort());
+}
+
+function populateSelect(id, options) {
+  const el = document.getElementById(id);
+  options.forEach(opt => {
+    const o = document.createElement('option');
+    o.value = opt;
+    o.textContent = opt;
+    el.appendChild(o);
+  });
+}
+
+function updateStats() {
+  document.getElementById('stat-courses').textContent = syllabi.length;
+  document.getElementById('stat-institutions').textContent = new Set(syllabi.map(s => s.institution)).size;
+  document.getElementById('stat-contributors').textContent = new Set(syllabi.map(s => s.contributor)).size;
+}
+
+function getFiltered() {
+  const search = document.getElementById('search').value.toLowerCase();
+  const foci = document.getElementById('filter-foci').value;
+  const modality = document.getElementById('filter-modality').value;
+  const students = document.getElementById('filter-students').value;
+  const institution = document.getElementById('filter-institution').value;
+
+  return syllabi.filter(s => {
+    if (search && !(
+      s.courseTitle.toLowerCase().includes(search) ||
+      s.description.toLowerCase().includes(search) ||
+      s.institution.toLowerCase().includes(search) ||
+      s.contributor.toLowerCase().includes(search) ||
+      s.department.toLowerCase().includes(search)
+    )) return false;
+
+    if (foci && !s.foci.includes(foci)) return false;
+    if (modality && !s.modality.includes(modality)) return false;
+    if (students && !s.students.includes(students)) return false;
+    if (institution && s.institution !== institution) return false;
+
+    return true;
+  });
+}
+
+function render() {
+  const filtered = getFiltered();
+  const container = document.getElementById('courses');
+  const info = document.getElementById('results-info');
+
+  info.textContent = `Showing ${filtered.length} of ${syllabi.length} courses`;
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<p style="text-align:center; padding: 2rem; color: #718096; font-family: sans-serif;">No courses match your filters.</p>';
+    return;
+  }
+
+  container.innerHTML = filtered.map(s => `
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-title">${esc(s.courseTitle)}</div>
+        <div class="course-year">${esc(String(s.yearTaught))}</div>
+      </div>
+      <div class="course-meta">
+        <strong>${esc(s.institution)}</strong> &mdash; ${esc(s.department)}<br>
+        Contributed by ${esc(s.contributor)} &middot; ${esc(s.schedule)} &middot; ${s.modality.map(m => esc(m)).join(', ')}
+      </div>
+      <div class="course-description">${esc(s.description)}</div>
+      <div class="course-tags">
+        ${s.foci.map(f => `<span class="tag">${esc(f)}</span>`).join('')}
+        ${s.modality.map(m => `<span class="tag modality">${esc(m)}</span>`).join('')}
+        ${s.students.map(st => `<span class="tag students">${esc(st)}</span>`).join('')}
+      </div>
+      <div class="course-footer">
+        ${s.syllabusLink ? `<a href="${esc(s.syllabusLink)}" target="_blank">View Syllabus &rarr;</a>` : '<span style="color: #a0aec0;">Syllabus not publicly shared</span>'}
+      </div>
+      ${s.notes ? `<div class="course-notes">${esc(s.notes)}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+function esc(str) {
+  const el = document.createElement('span');
+  el.textContent = str;
+  return el.innerHTML;
+}
+
+function clearFilters() {
+  document.getElementById('search').value = '';
+  document.getElementById('filter-foci').value = '';
+  document.getElementById('filter-modality').value = '';
+  document.getElementById('filter-students').value = '';
+  document.getElementById('filter-institution').value = '';
+  render();
+}
+
+// Event listeners
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('filter-foci').addEventListener('change', render);
+document.getElementById('filter-modality').addEventListener('change', render);
+document.getElementById('filter-students').addEventListener('change', render);
+document.getElementById('filter-institution').addEventListener('change', render);
+
+loadData();
+</script>
+
+</body>
+</html>
