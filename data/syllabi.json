@@ -245,7 +245,7 @@
     "courseTitle": "Lenses for Understanding and Examining K-12 Policy Implementation",
     "institution": "University of Maryland",
     "department": "Education Policy",
-    "contributor": "Meghan Comstock",
+    "contributor": "Meghan Comstock & Maya Kaul",
     "description": "The purpose of this seminar course is to familiarize students with organizational theory and its applications to K-12 policy implementation.",
     "foci": [
       "Organizational theory",
@@ -264,28 +264,4 @@
     "syllabusLink": "https://drive.google.com/file/d/1TPgCGhlf8fMZrsczsTc10r4Z1zySf-q8/view",
     "notes": ""
   },
-  {
-    "id": 12,
-    "courseTitle": "Lenses for Understanding and Examining K-12 Policy Implementation",
-    "institution": "University of Maryland",
-    "department": "Education Policy",
-    "contributor": "Meghan Comstock",
-    "description": "The purpose of this seminar course is to familiarize students with organizational theory and its applications to K-12 policy implementation.",
-    "foci": [
-      "Organizational theory",
-      "Policy implementation",
-      "K-12 education"
-    ],
-    "yearTaught": 2022,
-    "schedule": "Summer (10 total class sessions)",
-    "modality": [
-      "In-person"
-    ],
-    "students": [
-      "Masters",
-      "PhD"
-    ],
-    "syllabusLink": "https://drive.google.com/file/d/1Peu8Az7KiEOlZXUyZ7GZu3znF9kpr7S-/view",
-    "notes": ""
-  }
 ]
