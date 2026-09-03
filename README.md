@@ -41,7 +41,7 @@ This is a static site designed for GitHub Pages. To deploy:
 1. Create a new GitHub repository
 2. Push this folder's contents to the `main` branch
 3. Go to **Settings > Pages** and set the source to `main` branch, root (`/`)
-4. Your site will be live at `https://YOUR-USERNAME.github.io/REPO-NAME/`
+4. Your site will be live at `https://lkrogers2.github.io/syllabi-repo/`
 
 ## Data
 
