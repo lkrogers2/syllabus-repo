@@ -6,12 +6,22 @@
     "department": "Educational Leadership and Policy",
     "contributor": "Laura Rogers",
     "description": "This is a traditional org theory course applied to education.",
-    "foci": ["Organizational theory", "Leadership/management", "K-12 education", "Higher education"],
+    "foci": [
+      "Organizational theory",
+      "Leadership/management",
+      "K-12 education",
+      "Higher education"
+    ],
     "yearTaught": 2022,
     "schedule": "Semester",
-    "modality": ["In-person"],
-    "students": ["PhD", "EdD"],
-    "syllabusLink": "https://drive.google.com/open?id=1HtSnUwuRFag3EIrBpeEmfSCeqyVQQpjR",
+    "modality": [
+      "In-person"
+    ],
+    "students": [
+      "PhD",
+      "EdD"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/1HtSnUwuRFag3EIrBpeEmfSCeqyVQQpjR/view",
     "notes": "This course mixed K-12, Higher Ed, PhD, and EdD students and was a bit tough to teach for that reason. I welcome feedback on how it could be improved!"
   },
   {
@@ -21,12 +31,21 @@
     "department": "Educational Leadership",
     "contributor": "Jeff Walls",
     "description": "This is a course for EdD students that provides a variety of theories of organization that I hope will be useful to them in their dissertations in practice.",
-    "foci": ["Organizational theory", "Organizational behavior/change", "Leadership/management"],
+    "foci": [
+      "Organizational theory",
+      "Organizational behavior/change",
+      "Leadership/management"
+    ],
     "yearTaught": 2023,
     "schedule": "Semester",
-    "modality": ["In-person", "Online synchronous"],
-    "students": ["EdD"],
-    "syllabusLink": "https://drive.google.com/open?id=1204Df7cYLHvPfGqaiHBOxxNj9B4uoUF4",
+    "modality": [
+      "In-person",
+      "Online synchronous"
+    ],
+    "students": [
+      "EdD"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/1204Df7cYLHvPfGqaiHBOxxNj9B4uoUF4/view",
     "notes": ""
   },
   {
@@ -36,12 +55,21 @@
     "department": "School of Education and Human Development — Administration & Supervision Program Area",
     "contributor": "David Eddy-Spicer",
     "description": "Developing High-performance Organizations is a doctoral-level course for ExSEL students and others interested in understanding how organizations evolve, develop, improve, and decline. Students examine organizational theories, case studies, research on efforts to improve organizational performance, and methods for studying organizations over extended periods of time.",
-    "foci": ["Organizational theory", "Organizational behavior/change", "Leadership/management"],
+    "foci": [
+      "Organizational theory",
+      "Organizational behavior/change",
+      "Leadership/management"
+    ],
     "yearTaught": 2023,
     "schedule": "Semester",
-    "modality": ["In-person", "Online"],
-    "students": ["EdD"],
-    "syllabusLink": "https://drive.google.com/open?id=13O2CYHx9ovUXmg5jEJDWrVuLR6T7a8EI",
+    "modality": [
+      "In-person",
+      "Online"
+    ],
+    "students": [
+      "EdD"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/13O2CYHx9ovUXmg5jEJDWrVuLR6T7a8EI/view",
     "notes": ""
   },
   {
@@ -51,12 +79,22 @@
     "department": "Education",
     "contributor": "Eos Trinidad",
     "description": "This course integrates perspectives from organizational theory, sociology, and psychology to understand how schools function as complex social organizations. It draws on classic and contemporary studies to help students analyze, understand, and formulate responses to problems, dilemmas, and changes in schools and other social services. The course studies how organizational structure, culture, network, and interventions impact practices and outcomes.",
-    "foci": ["Organizational theory", "Organizational behavior/change", "Policy implementation"],
+    "foci": [
+      "Organizational theory",
+      "Organizational behavior/change",
+      "Policy implementation"
+    ],
     "yearTaught": 2023,
     "schedule": "Semester",
-    "modality": ["In-person", "Online"],
-    "students": ["Masters", "PhD"],
-    "syllabusLink": "https://drive.google.com/open?id=1wLHInRMxYhR3Boggi0cCJ10t0eHL08XR",
+    "modality": [
+      "In-person",
+      "Online"
+    ],
+    "students": [
+      "Masters",
+      "PhD"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/1wLHInRMxYhR3Boggi0cCJ10t0eHL08XR/view",
     "notes": ""
   },
   {
@@ -66,12 +104,20 @@
     "department": "Learning and Organizational Change",
     "contributor": "Jeannette Colyvas",
     "description": "Tools for Organizational Analysis is a collaborative course designed to help students harness the fundamentals of organizational analysis to address key questions about organizational behavior and performance. We pay special attention to research design and methodologies that address the dynamics of stability and change at the field and organizational levels.",
-    "foci": ["Organizational theory", "Organizational behavior/change"],
+    "foci": [
+      "Organizational theory",
+      "Organizational behavior/change"
+    ],
     "yearTaught": 2024,
     "schedule": "Quarter",
-    "modality": ["In-person"],
-    "students": ["Masters", "PhD"],
-    "syllabusLink": "https://drive.google.com/open?id=1kTR7vjS2_HS_9V_iLiL0KRb-GbPlja4i",
+    "modality": [
+      "In-person"
+    ],
+    "students": [
+      "Masters",
+      "PhD"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/1kTR7vjS2_HS_9V_iLiL0KRb-GbPlja4i/view",
     "notes": ""
   },
   {
@@ -81,12 +127,21 @@
     "department": "Learning and Organizational Change",
     "contributor": "Jeannette Colyvas",
     "description": "The course is organized as a seminar and will blend foundational studies in institutional theory with contemporary work from sociology, organization sciences, management, education, and nonprofit studies. An overarching theme of the course addresses how new practices and organizational forms spread (diffusion), how they become taken for granted or deeply embedded in social life (institutionalization), and when or how they change or are replaced.",
-    "foci": ["Organizational theory", "Organizational behavior/change", "Sociology"],
+    "foci": [
+      "Organizational theory",
+      "Organizational behavior/change",
+      "Sociology"
+    ],
     "yearTaught": 2024,
     "schedule": "Quarter",
-    "modality": ["In-person"],
-    "students": ["Masters", "PhD"],
-    "syllabusLink": "https://drive.google.com/open?id=1lButlOMV2XdKhR8iF2Uy-1PZm0PN--o2",
+    "modality": [
+      "In-person"
+    ],
+    "students": [
+      "Masters",
+      "PhD"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/1IButiG6j7KB3K0vHRtd1whjPTlzqiFJ1/view",
     "notes": ""
   },
   {
@@ -96,12 +151,19 @@
     "department": "Human and Organizational Development",
     "contributor": "Joanne Golann",
     "description": "This course builds on a first undergraduate course in org theory that uses Bolman and Deal to help students apply org theory to contemporary organizational issues.",
-    "foci": ["Organizational theory", "Sociology"],
+    "foci": [
+      "Organizational theory",
+      "Sociology"
+    ],
     "yearTaught": 2023,
     "schedule": "Semester",
-    "modality": ["In-person"],
-    "students": ["Undergraduate"],
-    "syllabusLink": "https://drive.google.com/open?id=1lBDEcU3O5B4E8e2FJq5NnKHPepQlKw4H",
+    "modality": [
+      "In-person"
+    ],
+    "students": [
+      "Undergraduate"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/1IB0Ecb6zNA4OuOsm6EY4PqsHzGc0R8FE/view",
     "notes": "This course is taught differently by different instructors. Gareth Jones' textbook was formally used and is the business-version of org theory."
   },
   {
@@ -111,12 +173,21 @@
     "department": "Educational Foundations, Organizations, and Policy",
     "contributor": "Eleanor Anderson",
     "description": "A PhD seminar on organizational theory for students in the school of education.",
-    "foci": ["Organizational theory", "Sociology", "K-12 education", "Higher education"],
+    "foci": [
+      "Organizational theory",
+      "Sociology",
+      "K-12 education",
+      "Higher education"
+    ],
     "yearTaught": 2024,
     "schedule": "Semester",
-    "modality": ["In-person"],
-    "students": ["PhD"],
-    "syllabusLink": "https://drive.google.com/open?id=16oiuVaWf_8QnAyYUCGLH2wQNS6FBl1kZ",
+    "modality": [
+      "In-person"
+    ],
+    "students": [
+      "PhD"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/16ojwZjW15jc0xoHgQn0qBn3JoTFb7hsi/view",
     "notes": ""
   },
   {
@@ -126,12 +197,20 @@
     "department": "Learning & Organizational Change",
     "contributor": "James Spillane",
     "description": "Studies in Organizational Change is an advanced course in the Learning & Organizational Change major designed to introduce key constructs and ideas about change in organizations.",
-    "foci": ["Organizational theory", "Organizational behavior/change", "Sociology"],
+    "foci": [
+      "Organizational theory",
+      "Organizational behavior/change",
+      "Sociology"
+    ],
     "yearTaught": 2024,
     "schedule": "Quarter",
-    "modality": ["In-person"],
-    "students": ["Undergraduate"],
-    "syllabusLink": "",
+    "modality": [
+      "In-person"
+    ],
+    "students": [
+      "Undergraduate"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/18_-PtizAel_wr7Rb87906i4cv9ZpZ4Pc/view",
     "notes": "Syllabus not shared publicly."
   },
   {
@@ -141,12 +220,24 @@
     "department": "Educational Leadership",
     "contributor": "Kate Kennedy",
     "description": "In this course, we dig deeply into one area of scholarship that may be particularly helpful to scholar-practitioners: organizational theory. This course is an introduction to organizational theory in education, with the unique lens of using organizational theory to solve problems of practice.",
-    "foci": ["Organizational theory", "Organizational behavior/change", "Leadership/management", "Policy implementation", "Sociology", "K-12 education", "Higher education"],
+    "foci": [
+      "Organizational theory",
+      "Organizational behavior/change",
+      "Leadership/management",
+      "Policy implementation",
+      "Sociology",
+      "K-12 education",
+      "Higher education"
+    ],
     "yearTaught": 2025,
     "schedule": "Semester",
-    "modality": ["Online asynchronous"],
-    "students": ["EdD"],
-    "syllabusLink": "https://drive.google.com/open?id=1Crp7dPAzePHjcYRgIc3Ge3B0OlxPaJNQ",
+    "modality": [
+      "Online asynchronous"
+    ],
+    "students": [
+      "EdD"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/1Crpj79TUxb4Nb3nqPJvFn3QDxo7elmKa/view",
     "notes": ""
   },
   {
@@ -156,12 +247,21 @@
     "department": "Education Policy",
     "contributor": "Meghan Comstock",
     "description": "The purpose of this seminar course is to familiarize students with organizational theory and its applications to K-12 policy implementation.",
-    "foci": ["Organizational theory", "Policy implementation", "K-12 education"],
+    "foci": [
+      "Organizational theory",
+      "Policy implementation",
+      "K-12 education"
+    ],
     "yearTaught": 2022,
     "schedule": "Summer (10 total class sessions)",
-    "modality": ["In-person"],
-    "students": ["Masters", "PhD"],
-    "syllabusLink": "https://drive.google.com/open?id=1TPqCfz9uPm1G9AUplmHUr1nDIgJqKxbI",
+    "modality": [
+      "In-person"
+    ],
+    "students": [
+      "Masters",
+      "PhD"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/1TPgCGhlf8fMZrsczsTc10r4Z1zySf-q8/view",
     "notes": ""
   },
   {
@@ -171,12 +271,21 @@
     "department": "Education Policy",
     "contributor": "Meghan Comstock",
     "description": "The purpose of this seminar course is to familiarize students with organizational theory and its applications to K-12 policy implementation.",
-    "foci": ["Organizational theory", "Policy implementation", "K-12 education"],
+    "foci": [
+      "Organizational theory",
+      "Policy implementation",
+      "K-12 education"
+    ],
     "yearTaught": 2022,
     "schedule": "Summer (10 total class sessions)",
-    "modality": ["In-person"],
-    "students": ["Masters", "PhD"],
-    "syllabusLink": "https://drive.google.com/open?id=1PeuBwU9TvgqQKiqJqIpG3A_L2FWWxvVh",
+    "modality": [
+      "In-person"
+    ],
+    "students": [
+      "Masters",
+      "PhD"
+    ],
+    "syllabusLink": "https://drive.google.com/file/d/1Peu8Az7KiEOlZXUyZ7GZu3znF9kpr7S-/view",
     "notes": ""
   }
 ]
