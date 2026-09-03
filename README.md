@@ -6,7 +6,7 @@ A community-sourced collection of organizational theory syllabi from education s
 
 This repository collects syllabi from organizational theory courses taught in education programs and related departments. It is intended as a resource for instructors designing or revising their own courses.
 
-**Live site:** [View the repository](https://YOUR-USERNAME.github.io/org-theory-syllabus-repo/)
+**Live site:** [View the repository](https://lkrogers2.github.io/syllabus-repo/)
 
 ## What's Included
 
