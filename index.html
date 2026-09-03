@@ -259,6 +259,18 @@
       border-top: 1px solid var(--border);
     }
 
+    /* Error / loading states */
+    .state-msg {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-light);
+    }
+
+    .state-msg.error {
+      color: var(--accent);
+    }
+
     /* Footer */
     footer {
       background: var(--primary);
@@ -357,37 +369,54 @@
   <div class="about">
     <h2>About This Repository</h2>
     <p>This repository collects syllabi from organizational theory courses taught in education programs and related departments. It is intended as a resource for instructors designing or revising their own courses. If you use a syllabus from this collection, please credit the contributor as they have requested.</p>
-    <p>Want to contribute your syllabus? <a href="https://forms.gle/DfdkPQqzZzwfKuQR7" target="_blank">Submit here</a>.</p>
+    <p>Want to contribute your syllabus? <a href="https://forms.gle/DfdkPQqzZzwfKuQR7" target="_blank" rel="noopener">Submit here</a>.</p>
   </div>
 
   <div class="results-info" id="results-info"></div>
-  <div class="courses" id="courses"></div>
+  <div class="courses" id="courses">
+    <p class="state-msg">Loading courses&hellip;</p>
+  </div>
 </div>
 
 <footer>
   <p>Org Theory Syllabus Repository &mdash; A community resource for education scholars</p>
-  <p style="margin-top: 0.5rem; opacity: 0.8;">Built with care. <a href="https://docs.google.com/spreadsheets/d/1aL5ILRkwIAmAww3pXeYWnS4w5l9mpCCnjxfEyX80nmo/edit" target="_blank">View original data</a></p>
+  <p style="margin-top: 0.5rem; opacity: 0.8;">Built with care. <a href="https://docs.google.com/spreadsheets/d/1aL5ILRkwIAmAww3pXeYWnS4w5l9mpCCnjxfEyX80nmo/edit" target="_blank" rel="noopener">View original data</a></p>
 </footer>
 
 <script>
-let syllabi = [
-  {"id":1,"courseTitle":"Organizational Theory","institution":"University of Utah","department":"Educational Leadership and Policy","contributor":"Laura Rogers","description":"This is a traditional org theory course applied to education.","foci":["Organizational theory","Leadership/management","K-12 education","Higher education"],"yearTaught":2022,"schedule":"Semester","modality":["In-person"],"students":["PhD","EdD"],"syllabusLink":"https://drive.google.com/file/d/1HtSnUwuRFag3EIrBpeEmfSCeqyVQQpjR/view","notes":"This course mixed K-12, Higher Ed, PhD, and EdD students and was a bit tough to teach for that reason. I welcome feedback on how it could be improved!"},
-  {"id":2,"courseTitle":"School Organization and Administration","institution":"Washington State University","department":"Educational Leadership","contributor":"Jeff Walls","description":"This is a course for EdD students that provides a variety of theories of organization that I hope will be useful to them in their dissertations in practice.","foci":["Organizational theory","Organizational behavior/change","Leadership/management"],"yearTaught":2023,"schedule":"Semester","modality":["In-person","Online synchronous"],"students":["EdD"],"syllabusLink":"https://drive.google.com/file/d/1204Df7cYLHvPfGqaiHBOxxNj9B4uoUF4/view","notes":""},
-  {"id":3,"courseTitle":"EDLF 8826: Developing High-Performance Organizations","institution":"University of Virginia","department":"School of Education and Human Development \u2014 Administration & Supervision Program Area","contributor":"David Eddy-Spicer","description":"Developing High-performance Organizations is a doctoral-level course for ExSEL students and others interested in understanding how organizations evolve, develop, improve, and decline. Students examine organizational theories, case studies, research on efforts to improve organizational performance, and methods for studying organizations over extended periods of time.","foci":["Organizational theory","Organizational behavior/change","Leadership/management"],"yearTaught":2023,"schedule":"Semester","modality":["In-person","Online"],"students":["EdD"],"syllabusLink":"https://drive.google.com/file/d/13O2CYHx9ovUXmg5jEJDWrVuLR6T7a8EI/view","notes":""},
-  {"id":4,"courseTitle":"Organizational Theory in Education and Other Social Services","institution":"UC Berkeley","department":"Education","contributor":"Eos Trinidad","description":"This course integrates perspectives from organizational theory, sociology, and psychology to understand how schools function as complex social organizations. It draws on classic and contemporary studies to help students analyze, understand, and formulate responses to problems, dilemmas, and changes in schools and other social services. The course studies how organizational structure, culture, network, and interventions impact practices and outcomes.","foci":["Organizational theory","Organizational behavior/change","Policy implementation"],"yearTaught":2023,"schedule":"Semester","modality":["In-person","Online"],"students":["Masters","PhD"],"syllabusLink":"https://drive.google.com/file/d/1wLHInRMxYhR3Boggi0cCJ10t0eHL08XR/view","notes":""},
-  {"id":5,"courseTitle":"Tools for Organizational Analysis","institution":"Northwestern University","department":"Learning and Organizational Change","contributor":"Jeannette Colyvas","description":"Tools for Organizational Analysis is a collaborative course designed to help students harness the fundamentals of organizational analysis to address key questions about organizational behavior and performance. We pay special attention to research design and methodologies that address the dynamics of stability and change at the field and organizational levels.","foci":["Organizational theory","Organizational behavior/change"],"yearTaught":2024,"schedule":"Quarter","modality":["In-person"],"students":["Masters","PhD"],"syllabusLink":"https://drive.google.com/file/d/1kTR7vjS2_HS_9V_iLiL0KRb-GbPlja4i/view","notes":""},
-  {"id":6,"courseTitle":"Topics in Organizations, Institutions, and Society: Persistence and Change Among Public, Private, and Non-Profit Settings","institution":"Northwestern University","department":"Learning and Organizational Change","contributor":"Jeannette Colyvas","description":"The course is organized as a seminar and will blend foundational studies in institutional theory with contemporary work from sociology, organization sciences, management, education, and nonprofit studies. An overarching theme of the course addresses how new practices and organizational forms spread (diffusion), how they become taken for granted or deeply embedded in social life (institutionalization), and when or how they change or are replaced.","foci":["Organizational theory","Organizational behavior/change","Sociology"],"yearTaught":2024,"schedule":"Quarter","modality":["In-person"],"students":["Masters","PhD"],"syllabusLink":"https://drive.google.com/file/d/1IButiG6j7KB3K0vHRtd1whjPTlzqiFJ1/view","notes":""},
-  {"id":7,"courseTitle":"Advanced Organizational Theory","institution":"Vanderbilt University","department":"Human and Organizational Development","contributor":"Joanne Golann","description":"This course builds on a first undergraduate course in org theory that uses Bolman and Deal to help students apply org theory to contemporary organizational issues.","foci":["Organizational theory","Sociology"],"yearTaught":2023,"schedule":"Semester","modality":["In-person"],"students":["Undergraduate"],"syllabusLink":"https://drive.google.com/file/d/1IB0Ecb6zNA4OuOsm6EY4PqsHzGc0R8FE/view","notes":"This course is taught differently by different instructors. Gareth Jones\u2019 textbook was formally used and is the business-version of org theory."},
-  {"id":8,"courseTitle":"Organizational Perspectives on Educational Improvement","institution":"University of Pittsburgh","department":"Educational Foundations, Organizations, and Policy","contributor":"Eleanor Anderson","description":"A PhD seminar on organizational theory for students in the school of education.","foci":["Organizational theory","Sociology","K-12 education","Higher education"],"yearTaught":2024,"schedule":"Semester","modality":["In-person"],"students":["PhD"],"syllabusLink":"https://drive.google.com/file/d/16ojwZjW15jc0xoHgQn0qBn3JoTFb7hsi/view","notes":""},
-  {"id":9,"courseTitle":"LOC 306 Studies in Organizational Change","institution":"Northwestern University","department":"Learning & Organizational Change","contributor":"James Spillane","description":"Studies in Organizational Change is an advanced course in the Learning & Organizational Change major designed to introduce key constructs and ideas about change in organizations.","foci":["Organizational theory","Organizational behavior/change","Sociology"],"yearTaught":2024,"schedule":"Quarter","modality":["In-person"],"students":["Undergraduate"],"syllabusLink":"https://drive.google.com/file/d/18_-PtizAel_wr7Rb87906i4cv9ZpZ4Pc/view","notes":""},
-  {"id":10,"courseTitle":"UEL 9012: Contexts of Educational Systems: Organizational Theory in Education","institution":"University of Cincinnati","department":"Educational Leadership","contributor":"Kate Kennedy","description":"In this course, we dig deeply into one area of scholarship that may be particularly helpful to scholar-practitioners: organizational theory. This course is an introduction to organizational theory in education, with the unique lens of using organizational theory to solve problems of practice.","foci":["Organizational theory","Organizational behavior/change","Leadership/management","Policy implementation","Sociology","K-12 education","Higher education"],"yearTaught":2025,"schedule":"Semester","modality":["Online asynchronous"],"students":["EdD"],"syllabusLink":"https://drive.google.com/file/d/1Crpj79TUxb4Nb3nqPJvFn3QDxo7elmKa/view","notes":""},
-  {"id":11,"courseTitle":"Lenses for Understanding and Examining K-12 Policy Implementation","institution":"University of Maryland","department":"Education Policy","contributor":"Meghan Comstock and Maya Kaul","description":"The purpose of this seminar course is to familiarize students with organizational theory and its applications to K-12 policy implementation.","foci":["Organizational theory","Policy implementation","K-12 education"],"yearTaught":2022,"schedule":"Summer (10 total class sessions)","modality":["In-person"],"students":["Masters","PhD"],"syllabusLink":"https://drive.google.com/file/d/1Peu8Az7KiEOlZXUyZ7GZu3znF9kpr7S-/view","notes":""},
-];
+// Course data lives in data/syllabi.json — that file is the single source of
+// truth. Do not hardcode course records in this file.
+let syllabi = [];
 
-function loadData() {
+async function loadData() {
+  const container = document.getElementById('courses');
+  try {
+    const res = await fetch('data/syllabi.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (!Array.isArray(data)) throw new Error('Expected an array of courses');
+    syllabi = data;
+  } catch (err) {
+    console.error('Could not load data/syllabi.json:', err);
+    container.innerHTML =
+      '<p class="state-msg error">Could not load the course list. ' +
+      'Please refresh, or report the problem if it persists.</p>';
+    document.getElementById('results-info').textContent = '';
+    return;
+  }
+
   populateFilters();
   updateStats();
   render();
+}
+
+// Normalizes the older drive.google.com/open?id=FILE_ID form to the current
+// /file/d/FILE_ID/view form, so links are consistent regardless of how a
+// contributor submitted them. Anything unrecognized is returned untouched.
+function normalizeDriveLink(url) {
+  if (!url) return '';
+  const m = url.match(/^https?:\/\/drive\.google\.com\/open\?id=([A-Za-z0-9_-]+)/);
+  return m ? 'https://drive.google.com/file/d/' + m[1] + '/view' : url;
 }
 
 function populateFilters() {
@@ -397,10 +426,10 @@ function populateFilters() {
   const allInstitutions = new Set();
 
   syllabi.forEach(s => {
-    s.foci.forEach(f => allFoci.add(f));
-    s.modality.forEach(m => allModalities.add(m));
-    s.students.forEach(st => allStudents.add(st));
-    allInstitutions.add(s.institution);
+    (s.foci || []).forEach(f => allFoci.add(f));
+    (s.modality || []).forEach(m => allModalities.add(m));
+    (s.students || []).forEach(st => allStudents.add(st));
+    if (s.institution) allInstitutions.add(s.institution);
   });
 
   populateSelect('filter-foci', [...allFoci].sort());
@@ -433,17 +462,16 @@ function getFiltered() {
   const institution = document.getElementById('filter-institution').value;
 
   return syllabi.filter(s => {
-    if (search && !(
-      s.courseTitle.toLowerCase().includes(search) ||
-      s.description.toLowerCase().includes(search) ||
-      s.institution.toLowerCase().includes(search) ||
-      s.contributor.toLowerCase().includes(search) ||
-      s.department.toLowerCase().includes(search)
-    )) return false;
+    if (search) {
+      const haystack = [
+        s.courseTitle, s.description, s.institution, s.contributor, s.department
+      ].filter(Boolean).join(' ').toLowerCase();
+      if (!haystack.includes(search)) return false;
+    }
 
-    if (foci && !s.foci.includes(foci)) return false;
-    if (modality && !s.modality.includes(modality)) return false;
-    if (students && !s.students.includes(students)) return false;
+    if (foci && !(s.foci || []).includes(foci)) return false;
+    if (modality && !(s.modality || []).includes(modality)) return false;
+    if (students && !(s.students || []).includes(students)) return false;
     if (institution && s.institution !== institution) return false;
 
     return true;
@@ -458,11 +486,13 @@ function render() {
   info.textContent = `Showing ${filtered.length} of ${syllabi.length} courses`;
 
   if (filtered.length === 0) {
-    container.innerHTML = '<p style="text-align:center; padding: 2rem; color: #718096; font-family: sans-serif;">No courses match your filters.</p>';
+    container.innerHTML = '<p class="state-msg">No courses match your filters.</p>';
     return;
   }
 
-  container.innerHTML = filtered.map(s => `
+  container.innerHTML = filtered.map(s => {
+    const link = normalizeDriveLink(s.syllabusLink);
+    return `
     <div class="course-card">
       <div class="course-header">
         <div class="course-title">${esc(s.courseTitle)}</div>
@@ -470,25 +500,26 @@ function render() {
       </div>
       <div class="course-meta">
         <strong>${esc(s.institution)}</strong> &mdash; ${esc(s.department)}<br>
-        Contributed by ${esc(s.contributor)} &middot; ${esc(s.schedule)} &middot; ${s.modality.map(m => esc(m)).join(', ')}
+        Contributed by ${esc(s.contributor)} &middot; ${esc(s.schedule)} &middot; ${(s.modality || []).map(m => esc(m)).join(', ')}
       </div>
       <div class="course-description">${esc(s.description)}</div>
       <div class="course-tags">
-        ${s.foci.map(f => `<span class="tag">${esc(f)}</span>`).join('')}
-        ${s.modality.map(m => `<span class="tag modality">${esc(m)}</span>`).join('')}
-        ${s.students.map(st => `<span class="tag students">${esc(st)}</span>`).join('')}
+        ${(s.foci || []).map(f => `<span class="tag">${esc(f)}</span>`).join('')}
+        ${(s.modality || []).map(m => `<span class="tag modality">${esc(m)}</span>`).join('')}
+        ${(s.students || []).map(st => `<span class="tag students">${esc(st)}</span>`).join('')}
       </div>
       <div class="course-footer">
-        ${s.syllabusLink ? `<a href="${esc(s.syllabusLink)}" target="_blank">View Syllabus &rarr;</a>` : '<span style="color: #a0aec0;">Syllabus not publicly shared</span>'}
+        ${link ? `<a href="${esc(link)}" target="_blank" rel="noopener">View Syllabus &rarr;</a>` : '<span style="color: #a0aec0;">Syllabus not publicly shared</span>'}
       </div>
       ${s.notes ? `<div class="course-notes">${esc(s.notes)}</div>` : ''}
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function esc(str) {
   const el = document.createElement('span');
-  el.textContent = str;
+  el.textContent = str == null ? '' : str;
   return el.innerHTML;
 }
 
